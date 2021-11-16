@@ -36,7 +36,7 @@ ax03 = plt.subplot(fig_rows, fig_colums, 3)
 
 
 # ---- PLOT 01, ax01 ----
-ax01.scatter(values, squares, c='green', s=10)
+ax01.scatter(values, squares, color='green', s=10)
 # Set the range for x and y axis
 ax01.axis([0,1100, 0,1.1e6])
 
@@ -47,7 +47,7 @@ ax01.tick_params(axis='both', which='major', labelsize=font_size_tick)
 
 
 # ---- PLOT 02, ax02 ----
-ax02.scatter(values, squares, c=(0.8, 0.2, 0.2), s=10)
+ax02.scatter(values, squares, color=(0.8, 0.2, 0.2), s=10)
 
 ax02.set_title("Square numbers (02)", fontsize=font_size_title)
 ax02.set_xlabel("Value (x)", fontsize=font_size_axis)
@@ -70,7 +70,7 @@ ax03.tick_params(axis='both', which='major', labelsize=font_size_tick)
 
 
 # Print the figure to file
-print_to_file = True
+print_to_file = False
 if print_to_file:
     plt.savefig(fname='mpl_scatter.png')
 
