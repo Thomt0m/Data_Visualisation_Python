@@ -2,7 +2,10 @@ from random import randint
 
 # Plotly
 from plotly import offline
+# recommended starting point
 import plotly.express as px
+# in-depth access point
+import plotly.graph_objects as pgo
 
 
 
@@ -52,15 +55,6 @@ for value in range(1, die.sides+1):
 # Visualise the result
 x_values = list(range(1, die.sides+1))
 
-data = px.bar(x=x_values, y=frequencies)
-
-
-
-x_axis_config = {'title' : 'Result'}
-y_axis_config = {'title' : 'Frequency'}
-
-offline.plot(data, filename='d6.html')
-
-# my_layout = px.layout(title=f'Results of rolling a {die.sides}-sided die {number_of_rolls} times', xaxis=x_axis_config, yaxis=y_axis_config)
-# offline.plot({'data': data, filename='d6.html')
-
+fig = pgo.Figure([pgo.Bar(x=x_values, y=frequencies)])
+fig.update_layout(title_text=f'Die rolls ({number_of_rolls}x)')
+fig.show()
